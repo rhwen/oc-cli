@@ -2,6 +2,8 @@ FROM alpine:latest
 
 USER root
 
+RUN apk add ca-certificates
+
 ADD https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux-4.3.18.tar.gz /tmp/openshift-client-linux-4.3.18.tar.gz
 
 RUN tar xvf /tmp/openshift-client-linux-4.3.18.tar.gz -C /bin && \
