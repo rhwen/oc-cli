@@ -1,0 +1,12 @@
+FROM registry.access.redhat.com/ubi8/ubi:latest
+
+USER root
+
+ADD https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz /tmp/openshift-client-linux.tar.gz
+ADD https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/opm-linux.tar.gz /tmp/opm-linux.tar.gz
+
+RUN tar xvf /tmp/openshift-client-linux.tar.gz -C /bin && \
+    tar xvf /tmp/opm-linux.tar.gz -C /bin && \
+    rm -rf /tmp/*.tar.gz 
+
+CMD ["/bin/sh"]
